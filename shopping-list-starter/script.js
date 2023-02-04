@@ -6,9 +6,10 @@ let shoppingItems = [
     { name: "bread", dueDate: "03/01/2023" }
 ];
 
+//gets the shopping-list-iyems input from the HTML and sets it to a list
+const listElement = document.getElementById("shopping-list-items");
+
 function updateItems() {
-    //gets the shopping-list-iyems input from the HTML and sets it to a list
-    const listElement = document.getElementById("shopping-list-items");
     // sets innerHTML to empty string
     listElement.innerHTML = "";
     //iterate through the shoppingItems 
