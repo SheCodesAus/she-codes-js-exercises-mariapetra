@@ -1,14 +1,25 @@
+//create empty list for to do text / status and due date
 let todoTaskText = [];
 let todoTaskStatus = [];
+let todoTaskDueDate = [];
 
 function addTask() {
-    const newTask = document.getElementById("new-task-text");
-    if (newTask.value) {
-        todoTaskText.push(newTask.value);
-        todoTaskStatus.push(false);
-        newTask.value = "";
-        updateTodoList();
-    }
+  const newTask = document.getElementById("new-task-text");
+  if (newTask.value) {
+    todoTaskText.push(newTask.value);
+    todoTaskStatus.push(false);
+    newTask.value = "";
+    updateTodoList();
+  }
+}
+
+function addDueDate() {
+  const dueDate = document.getElementById("due-date");
+  if (dueDate.value) {
+    todoTaskDueDate.push(dueDate.value);
+    dueDate.value = "";
+    updateTodoList();
+  }
 }
 
 function updateTodoList() {
@@ -26,11 +37,17 @@ function createNewTodoItemElement(task, index) {
 
   if (todoTaskStatus[index] == true) {
     newTodoTaskTextElement.classList.add("complete");
-    newTodoTaskTextElement.classList.add("updated-button")
   }
 
   const newTodoTaskElement = document.createElement("li");
   newTodoTaskElement.appendChild(newTodoTaskTextElement);
+
+  const dueDate = document.createElement("p");
+  dueDate.innerText = `Due date: ${todoTaskDueDate[index]}`;
+  newTodoTaskElement.appendChild(dueDate);
+  if (todoTaskStatus[index] == true) {
+    dueDate.classList.add("complete");
+  }
 
   const completeButtonElement = document.createElement("input");
   completeButtonElement.type = "button";
@@ -40,24 +57,10 @@ function createNewTodoItemElement(task, index) {
   };
   newTodoTaskElement.appendChild(completeButtonElement);
 
-
   return newTodoTaskElement;
 }
 
-// function addDueDate() {
-
-// }
-
 function toggleComplete(index) {
-  // If the to do is not complete
-  if (todoTaskStatus[index] == false) {
-    // Set the todo to complete
-    todoTaskStatus[index] = true;
-  } else {
-    // Else the todo is already complete so set it to incomplete
-    todoTaskStatus[index] = false;
-  }
+  todoTaskStatus[index] = !todoTaskStatus[index];
   updateTodoList();
 }
-
-// updateTodoList();
