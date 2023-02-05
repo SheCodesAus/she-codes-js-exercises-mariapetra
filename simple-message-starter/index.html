@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <title>Simple Message</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
 
-    <body>
-        <h1>Simple Message</h1>
-        <div id="message-input">
-            <input
-                id="message-text"
-                type="text"
-                placeholder="Your message here..."
-            />
-            <input type="button" value="submit" onclick="showMessage()">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Simple Message</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
 
-        </div>
-        <div id="output"></div>
-        <script src="script.js"></script>
-    </body>
+<body>
+    <h1>Simple Message</h1>
+    <div id="message-input">
+        <input id="message-text" type="text" placeholder="Your message here..." />
+
+        <input id="username" type="text" placeholder="Your name here..." />
+        <input type="button" value="submit" onclick="showMessage(), showName()">
+
+    </div>
+    <div id="output"></div>
+    <script src="script.js"></script>
+</body>
+
 </html>

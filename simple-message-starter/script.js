@@ -1,26 +1,25 @@
 window.onload = function load() {
- const speechBubbleElement = document.createElement("div");
- speechBubbleElement.classList.add("speech-bubble");
+    const speechBubbleElement = document.createElement("div");
+    speechBubbleElement.classList.add("speech-bubble");
 
- const messageBox = document.createElement("p");
- messageBox.innerText = "...";
- messageBox.id = "message-box"
+    const messageBox = document.createElement("p");
+    messageBox.innerText = "...";
+    messageBox.id = "message-box"
 
- const nameElement = document.createElement("p");
- nameElement.innerText = "...";
- nameElement.id= "message-box"
+    const nameElement = document.createElement("p");
+    nameElement.id = "name-box"
 
- speechBubbleElement.appendChild(messageBox, nameElement);
+    speechBubbleElement.appendChild(messageBox);
+    speechBubbleElement.appendChild(nameElement);
 
- const outputElement = document.getElementById("output");
- outputElement.appendChild(speechBubbleElement);
+    const outputElement = document.getElementById("output");
+    outputElement.appendChild(speechBubbleElement);
 
- 
 };
 
 function showMessage() {
-    let message = document.getElementById("message-text").value;
+    const message = document.getElementById("message-text").value;
+    const name = document.getElementById("username").value;
     const messageBox = document.getElementById("message-box");
-    messageBox.innerText = message;
-   
+    messageBox.innerText = `${message} - ${name}`;
 }
